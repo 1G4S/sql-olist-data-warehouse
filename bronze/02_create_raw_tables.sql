@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS bronze.geolocation_raw(
 CREATE TABLE IF NOT EXISTS bronze.order_items_raw(
     order_id TEXT,
     order_item_id TEXT,
+	product_id TEXT,
     seller_id TEXT,
     shipping_limit_date TIMESTAMP,
     price DECIMAL(10,2),
@@ -85,7 +86,7 @@ CREATE TABLE IF NOT EXISTS bronze.orders_raw(
     order_status TEXT,
     order_purchase_timestamp TIMESTAMP,
     order_approved_at TIMESTAMP,
-    order_delivered_career_date TIMESTAMP,
+    order_delivered_carrier_date TIMESTAMP,
     order_delivered_customer_date TIMESTAMP,
     order_estimated_delivery_date TIMESTAMP,
     ingested_at TIMESTAMPTZ DEFAULT now()
