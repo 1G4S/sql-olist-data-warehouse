@@ -31,9 +31,9 @@ WITH raw_std AS(
 -- 3. Choosing latest row with unique_id
 last_row AS(
     SELECT
-        DISTINCT ON (c.customer_unique_id),
-        c.customer_unique_id,
-        c.customer_id AS latest_customer_id
-    FROM bronze.customers_raw AS c
-    ORDER BY c.customer_unique_id, c.ingested_at DESC
+        DISTINCT ON (rst.customer_unique_id),
+        rst.customer_unique_id,
+        rst.customer_id AS latest_customer_id
+    FROM raw_std AS rst
+    ORDER BY rst.customer_unique_id, rst.ingested_at DESC
 );
